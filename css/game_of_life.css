@@ -1,0 +1,37 @@
+body{
+    background-color: none;
+}
+
+table, tr, td{
+    border: 1px solid black;
+}
+
+tr, td{
+    width: 20px;
+    height: 20px;
+}
+
+button{
+    margin: 20;
+   background: grey;
+   position: absolute;
+   top: 30%;
+   left: 80%;
+   margin-right: -80%;
+}
+
+.bluecell{
+    background-color: blue;
+}
+
+.whitecell{
+    background-color: white;
+}
+span{
+    margin: 0;
+   position: absolute;
+   top: 25%;
+   left: 80%;
+   margin-right: -80%;
+   text-align: center;
+}
