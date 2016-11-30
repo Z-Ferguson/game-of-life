@@ -8,19 +8,18 @@ table, tr, td{
 }
 
 tr, td{
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
 }
 
 div button{
     margin: 0;
     background: grey;
-    position: absolute;
+    position: relative;
     top: 30%;
     left: 80%;
     margin-right: -80%;
     display:inline-block;
-    float: left;
 }
 
 .livecell{
@@ -28,18 +27,25 @@ div button{
 }
 
 .deadcell{
-    background-color: white;
+    background-color: #262626;
 }
 span{
     margin: 0;
    position: absolute;
-   top: 25%;
+   top: 15%;
    left: 80%;
    margin-right: -80%;
    text-align: center;
 }
 
-
+.grid{
+    margin: 0;
+   position: absolute;
+   top: 25%;
+   left: 30%;
+   margin-right: -30%;
+   text-align: center;
+}
 /*.controls {
   margin-top: 10px;
   margin-left: 270px;

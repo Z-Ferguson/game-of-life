@@ -15,13 +15,13 @@
 
 
 
-
 function createTable(){
     current_seconds = 0
-    var rows = 20
-    var cols = 35
+    var rows = 10
+    var cols = 20
 
     var $table = $("<table>")
+    $table.attr("id", "lifeboard")
     $("#gameboard").empty()
     $("#gameboard").append($table)
     for(var row = 0; row < rows; row++){
@@ -30,34 +30,39 @@ function createTable(){
         console.log($row)
         for(var col = 0; col < cols; col++){
             var $col = $("<td>")
-            $col.click(clickCell).contextmenu(rightClick)
+            $col.click(addLife)
             $row.append($col)
             $col.attr("id", row + "_" + col)
         }
     }
 }
 
-function clickCell(){
+function addLife(){
 
     if(!clock){
         clock = setInterval(updateClock, 1000)
     }
 
-    console.log(this)
-    $(this).addClass("livecell")
-    // findNeighbors($(this))
+    // console.log(this)
+    $(this).toggleClass("livecell")
 }
 
-function rightClick(event){
-    console.log(this)
-    event.preventDefault()
-    $(this).toggleClass("deadcell")
-}
+// function rightClick(event){
+//     console.log(this)
+//     event.preventDefault()
+//     $(this).toggleClass("deadcell")
+// }
 
 var clock
 var current_seconds = 0
 function updateClock(){
     $("#clock").html(current_seconds++)
+}
+
+function gameTick(){
+    if(!clock){
+        clock = setInterval(lifeDeath, 1000)
+    }
 }
 
 function neighboursOf(cell){
@@ -79,12 +84,35 @@ function neighboursOf(cell){
             count++
         }
     }
-    if (count == 0) {
-        for(var i = 0; i < neighbors.length; i++) {
-            neighbors[i].click()
+    return
+}
+
+
+function lifeDeath(){
+    var current_table = $("lifeboard")
+    var next_rows = 10
+    var next_cols = 20
+
+    var $next_table = $("<table>")
+    for(var next_row = 0; next_row < next_rows; next_row++){
+        var $next_row = $("<tr>")
+        $next_table.append($next_row)
+        // console.log($next_row)
+        for(var next_col = 0; next_col < next_cols; next_col++){
+            var $next_col = $("<td>")
+            // $col.click(clickCell)
+            $row.append($next_col)
+            $col.attr("id", next_row + "_" + next_col)
+            var check = neighboursOf($('#' + next_row + '_' + next_cell))
+            if (check == 3){
+                $next_cell.addClass("livecell")
+            } else if (check == 2 && $('#' + next_row + '_' + next_cell).hasClass("livecell")){
+                $next_cell.addClass("livecell")
+            }
         }
     }
 }
 
-
 $("#startButton").click(createTable)
+$("#tickButton").click(gameTick)
+var clock = false
