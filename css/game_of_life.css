@@ -1,9 +1,10 @@
 body{
-    background-color: none;
+    background-color: #262626;
 }
 
 table, tr, td{
-    border: 1px solid black;
+    border: 1px solid grey;
+    position: relative;
 }
 
 tr, td{
@@ -11,20 +12,22 @@ tr, td{
     height: 20px;
 }
 
-button{
-    margin: 20;
-   background: grey;
-   position: absolute;
-   top: 30%;
-   left: 80%;
-   margin-right: -80%;
+div button{
+    margin: 0;
+    background: grey;
+    position: absolute;
+    top: 30%;
+    left: 80%;
+    margin-right: -80%;
+    display:inline-block;
+    float: left;
 }
 
-.bluecell{
+.livecell{
     background-color: blue;
 }
 
-.whitecell{
+.deadcell{
     background-color: white;
 }
 span{
@@ -35,3 +38,10 @@ span{
    margin-right: -80%;
    text-align: center;
 }
+
+
+/*.controls {
+  margin-top: 10px;
+  margin-left: 270px;
+  width: 400px;
+}*/

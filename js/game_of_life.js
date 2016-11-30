@@ -13,6 +13,9 @@
 //      }
 // }
 
+
+
+
 function createTable(){
     current_seconds = 0
     var rows = 20
@@ -41,13 +44,14 @@ function clickCell(){
     }
 
     console.log(this)
-    $(this).addClass("bluecell")
+    $(this).addClass("livecell")
+    // findNeighbors($(this))
 }
 
 function rightClick(event){
     console.log(this)
     event.preventDefault()
-    $(this).toggleClass("whitecell")
+    $(this).toggleClass("deadcell")
 }
 
 var clock
@@ -56,7 +60,7 @@ function updateClock(){
     $("#clock").html(current_seconds++)
 }
 
-function findNeighbors(cell){
+function neighboursOf(cell){
     console.log(cell.attr("id").split("_"))
     var x = parseInt(cell.attr("id").split("_")[0])
     var y = parseInt(cell.attr("id").split("_")[1])
@@ -71,7 +75,7 @@ function findNeighbors(cell){
                      $("#" + (x+1) + "_" + (y+1))
                  ]
     for(var i = 0; i < neighbors.length; i++) {
-        if (neighbors[i].hasClass("bluecell")){
+        if (neighbors[i].hasClass("livecell")){
             count++
         }
     }
@@ -81,4 +85,6 @@ function findNeighbors(cell){
         }
     }
 }
+
+
 $("#startButton").click(createTable)
