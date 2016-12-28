@@ -4,41 +4,20 @@ body{
 
 table, tr, td{
     border: 1px solid grey;
-    position: relative;
+    border-collapse: collapse;
 }
 
 tr, td{
-    width: 30px;
-    height: 30px;
-}
-
-div button{
-    margin: 0;
-    background: grey;
-    position: relative;
-    top: 30%;
-    left: 80%;
-    margin-right: -80%;
-    display:inline-block;
-}
-
-.livecell{
-    background-color: blue;
-}
-
-.deadcell{
+    width: 15px;
+    height: 15px;
     background-color: #262626;
 }
-span{
-    margin: 0;
-   position: absolute;
-   top: 15%;
-   left: 80%;
-   margin-right: -80%;
-   text-align: center;
-}
 
-.grid{
+.alive{
+    background-color: white;
+    }
+
+#world{
     margin: 0;
    position: absolute;
    top: 25%;
@@ -46,8 +25,3 @@ span{
    margin-right: -30%;
    text-align: center;
 }
-/*.controls {
-  margin-top: 10px;
-  margin-left: 270px;
-  width: 400px;
-}*/
